@@ -1,0 +1,121 @@
+/* =========================================================================
+   Questionnaire widget
+   ====================================================================== */
+
+:root {
+  /* tweak these to match a brand theme -------------------------------- */
+  --q-bg:      #f3f0e7;  /* beige backdrop */
+  --q-accent:  #c4b15a;  /* olive / gold pill & CTA */
+  --q-text:    #0f172a;  /* primary text */
+  --q-white:   #ffffff;
+  --q-border:  #cfcfcf;  /* border for empty squares */
+}
+
+/* wrapper -------------------------------------------------------------- */
+.questionnaire {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size:  1.125rem;
+  color: var(--q-text);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* “Krok 1” badge ------------------------------------------------------- */
+.q-badge {
+  display: block;
+  margin: 0 auto 0.5rem;
+  padding: 0.5rem 3rem;
+  background: var(--q-accent);
+  color: var(--q-white);
+  font-weight: 600;
+  border-radius: 15px;
+  text-align: center;
+  width: fit-content;
+}
+
+/* beige stage container ------------------------------------------------ */
+.q-stage {
+  background: var(--q-bg);
+  padding: 2rem 4rem 3rem;
+  border-radius: 12px;
+}
+
+/* white header block --------------------------------------------------- */
+.q-header {
+  background: var(--q-white);
+  padding: 1rem 1.25rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 4%);
+  margin-bottom: 0.5rem;
+}
+.q-header h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.q-header small {
+  display: block;
+  font-size: 0.875rem;
+  color: #5f6368;
+}
+
+/* question list -------------------------------------------------------- */
+.q-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.q-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+/* number bubble */
+.q-num {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-weight: 600;
+  background: var(--q-white);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+}
+/* sentence pill */
+.q-text {
+  background: var(--q-white);
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 4%);
+}
+/* empty score square (placeholder for 1-6 scale) */
+.q-score {
+  padding: 0 0 0 18px;
+  width: 30px;
+  height: 48px;
+  border: 2px solid var(--q-border);
+  border-radius: 6px;
+}
+
+/* CTA ------------------------------------------------------------------ */
+.q-submit {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 2rem;
+  background: var(--q-accent);
+  color: var(--q-white);
+  font-weight: 600;
+  font-size:  1.125rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+.q-submit:hover {
+  background: #ab964e; /* darker accent on hover */
+}
