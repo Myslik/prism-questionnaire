@@ -27,16 +27,49 @@
         <small>{{ subheader }}</small>
       </header>
 
-      <!-- questions ---------------------------------------------------- -->
-      <ol class="q-list">
-        <li v-for="(q, i) in questions" :key="i" class="q-item">
-          <span class="q-num">{{ i + 1 }}.</span>
-          <span class="q-text">{{ q }}</span>
+      <!-- questions or contact form based on step type ------------------- -->
+      <div v-if="currentStepData.type === 'questions'">
+        <ol class="q-list">
+          <li v-for="(q, i) in questions" :key="i" class="q-item">
+            <span class="q-num">{{ i + 1 }}.</span>
+            <span class="q-text">{{ q }}</span>
 
-          <!-- "square" to record answer: a 1-6 number picker for now -->
-          <input class="q-score" type="number" min="1" max="6" v-model.number="answers[currentStepIndex + '_' + i]" />
-        </li>
-      </ol>
+            <!-- "square" to record answer: a 1-6 number picker for now -->
+            <input class="q-score" type="number" min="1" max="6" v-model.number="answers[currentStepIndex + '_' + i]" />
+          </li>
+        </ol>
+      </div>
+
+      <!-- contact form -------------------------------------------------- -->
+      <div v-if="currentStepData.type === 'contact'" class="q-contact-form">
+        <div class="q-contact-row">
+          <div class="q-contact-field">
+            <label for="firstName">Jméno <span class="required">*</span></label>
+            <input type="text" id="firstName" v-model="contactInfo.firstName" required>
+          </div>
+          <div class="q-contact-field">
+            <label for="lastName">Příjmení <span class="required">*</span></label>
+            <input type="text" id="lastName" v-model="contactInfo.lastName" required>
+          </div>
+        </div>
+        <div class="q-contact-row">
+          <div class="q-contact-field">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" v-model="contactInfo.email" required>
+          </div>
+          <div class="q-contact-field">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" v-model="contactInfo.phone">
+          </div>
+        </div>
+        <div class="q-contact-row">
+          <div class="q-contact-field">
+            <label for="profession">Are you a :</label>
+            <input type="text" id="profession" v-model="contactInfo.profession">
+          </div>
+          <div class="q-contact-field"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Navigation buttons -------------------------------------------- -->
@@ -45,7 +78,7 @@
         Zpět
       </button>
       <button class="q-submit" @click="nextStep">
-        {{ isLastStep ? 'Odeslat' : 'Pokračovat' }}
+        {{ isLastStep ? 'Generate Report' : 'Pokračovat' }}
       </button>
     </div>
   </section>

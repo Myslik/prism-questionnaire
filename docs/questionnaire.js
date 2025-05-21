@@ -6,12 +6,22 @@ createApp({
   /* current step index ----------------------------------------------- */
   currentStepIndex: 0,
   
+  /* contact information ---------------------------------------------- */
+  contactInfo: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    profession: ''
+  },
+  
   /* step configurations ---------------------------------------------- */
   steps: [
     {
       /* header copy for step 1 --------------------------------------- */
       header: 'Please rate on a scale of 1 – 6:',
       subheader: '(Where 1 is not like you at all and 6 is extremely like you)',
+      type: 'questions',
       
       /* questions for step 1 ----------------------------------------- */
       questions: [
@@ -24,12 +34,19 @@ createApp({
       /* header copy for step 2 --------------------------------------- */
       header: 'Please continue rating on a scale of 1 – 6:',
       subheader: '(Where 1 is not like you at all and 6 is extremely like you)',
+      type: 'questions',
       
       /* questions for step 2 ----------------------------------------- */
       questions: [
         'I am talkative and outgoing and good at making friends with strangers',
         'I enjoy doing tasks that require accuracy and attention to small detail'
       ]
+    },
+    {
+      /* header copy for contact form step ---------------------------- */
+      header: 'Almost there!',
+      subheader: 'We just need your name and email address so that we can send your report to you. Your report will give you a detailed overview of your communication style and in a few days we will send you a bonus report on how to adapt your style to be more effective when communicating with others.',
+      type: 'contact'
     }
   ],
   
@@ -82,7 +99,13 @@ createApp({
   
   /* submit all answers on final step -------------------------------- */
   submit() {
+    // Combine answers with contact info
+    const submissionData = {
+      answers: this.answers,
+      contactInfo: this.contactInfo
+    }
     console.table(this.answers)
+    console.log('Contact Information:', this.contactInfo)
     alert('Thanks! Check the console for captured values.')
   }
 }).mount('#questionnaire')
