@@ -153,7 +153,7 @@
 .q-contact-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 3rem;
 }
 
 .q-contact-field {

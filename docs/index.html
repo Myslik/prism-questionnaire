@@ -39,7 +39,7 @@
           </li>
         </ol>
       </div>
-      
+
       <!-- contact form -------------------------------------------------- -->
       <div v-if="currentStepData.type === 'contact'" class="q-contact-form">
         <div class="q-contact-row">
@@ -62,9 +62,12 @@
             <input type="tel" id="phone" v-model="contactInfo.phone">
           </div>
         </div>
-        <div class="q-contact-field">
-          <label for="profession">Are you a :</label>
-          <input type="text" id="profession" v-model="contactInfo.profession">
+        <div class="q-contact-row">
+          <div class="q-contact-field">
+            <label for="profession">Are you a :</label>
+            <input type="text" id="profession" v-model="contactInfo.profession">
+          </div>
+          <div class="q-contact-field"></div>
         </div>
       </div>
     </div>
