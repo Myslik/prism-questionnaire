@@ -108,7 +108,7 @@
 /* CTA ------------------------------------------------------------------ */
 .q-navigation {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 1rem;
   margin-top: 1.5rem;
 }
