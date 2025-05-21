@@ -10,7 +10,9 @@ createApp({
   contactInfo: {
     firstName: '',
     lastName: '',
-    email: ''
+    email: '',
+    phone: '',
+    profession: ''
   },
   
   /* step configurations ---------------------------------------------- */
@@ -42,8 +44,8 @@ createApp({
     },
     {
       /* header copy for contact form step ---------------------------- */
-      header: 'Your Contact Information',
-      subheader: 'Please enter your details below',
+      header: 'Almost there!',
+      subheader: 'We just need your name and email address so that we can send your report to you. Your report will give you a detailed overview of your communication style and in a few days we will send you a bonus report on how to adapt your style to be more effective when communicating with others.',
       type: 'contact'
     }
   ],
