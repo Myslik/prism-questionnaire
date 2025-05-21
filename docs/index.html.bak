@@ -17,7 +17,7 @@
   <section id="questionnaire" class="questionnaire">
 
     <!-- Krok badge -->
-    <div class="q-badge">Krok {{ currentStep }} / {{ steps.length }}</div>
+    <div class="q-badge">Krok {{ step }}</div>
 
     <!-- beige card with header, list -->
     <div class="q-stage">
@@ -33,21 +33,16 @@
           <span class="q-num">{{ i + 1 }}.</span>
           <span class="q-text">{{ q }}</span>
 
-          <!-- "square" to record answer: a 1-6 number picker for now -->
-          <input class="q-score" type="number" min="1" max="6" v-model.number="answers[currentStepIndex + '_' + i]" />
+          <!-- “square” to record answer: a 1-6 number picker for now -->
+          <input class="q-score" type="number" min="1" max="6" v-model.number="answers[i]" />
         </li>
       </ol>
     </div>
 
-    <!-- Navigation buttons -------------------------------------------- -->
-    <div class="q-navigation">
-      <button v-if="!isFirstStep" class="q-back" @click="previousStep">
-        Zpět
-      </button>
-      <button class="q-submit" @click="nextStep">
-        {{ isLastStep ? 'Odeslat' : 'Pokračovat' }}
-      </button>
-    </div>
+    <!-- CTA ----------------------------------------------------------- -->
+    <button class="q-submit" @click="submit">
+      Pokračovat
+    </button>
   </section>
 
   <!-- business logic -->
