@@ -71,11 +71,11 @@
         <div class="q-contact-options-section">
           <p class="q-contact-heading">Co si od nás přejete poslat?</p>
           <div class="q-contact-radio">
-            <input type="radio" id="option1" name="options" value="basic" checked>
+            <input type="radio" id="option1" name="contactOptions" value="basic" v-model="contactInfo.marketing" :value="false">
             <label for="option1">Chci zaslat PRISM zprávu s popisem mého nejvýraznějšího stylu chování.</label>
           </div>
           <div class="q-contact-radio">
-            <input type="radio" id="option2" name="options" v-model="contactInfo.marketing">
+            <input type="radio" id="option2" name="contactOptions" v-model="contactInfo.marketing" :value="true">
             <label for="option2">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný styl chování lépe využívat – vychází z principů PRISM a zkušeností z praxe.</label>
           </div>
         </div>
@@ -83,7 +83,7 @@
         <div class="q-contact-gdpr-section">
           <p class="q-contact-heading">Souhlas se zpracováním údajů</p>
           <div class="q-contact-radio">
-            <input type="radio" id="agree" name="gdpr" v-model="contactInfo.gdprAgree" required checked>
+            <input type="radio" id="agree" name="gdpr" v-model="contactInfo.gdprAgree" required :value="true">
             <label for="agree">Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem zaslání zprávy PRISM a navazujících informací.</label>
           </div>
           <p class="q-contact-note">Z odběru se můžete kdykoliv odhlásit.</p>
