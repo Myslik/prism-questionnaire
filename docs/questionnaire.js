@@ -5,90 +5,125 @@ import {
 createApp({
   /* current step index ----------------------------------------------- */
   currentStepIndex: 0,
-  
+
   /* contact information ---------------------------------------------- */
   contactInfo: {
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    profession: ''
+    goal: ''
   },
-  
+
   /* step configurations ---------------------------------------------- */
   steps: [
     {
       /* header copy for step 1 --------------------------------------- */
-      header: 'Please rate on a scale of 1 – 6:',
-      subheader: '(Where 1 is not like you at all and 6 is extremely like you)',
+      header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
       type: 'questions',
-      
+
       /* questions for step 1 ----------------------------------------- */
       questions: [
-        'I tend to feel embarrassed if I am praised or receive recognition in public.',
-        'I become bored easily and require lots of variety and excitement',
-        'I am patient and understanding when dealing with difficult people'
+        'Cítím se trapně, když mě někdo chválí nebo oceňuje na veřejnosti.',
+        'Rychle se začnu nudit a potřebuji hodně rozmanitosti a vzrušení.',
+        'Jsem trpělivý/á a chápavý/á, když jednám s obtížnými lidmi.',
+        'Jsem hovorný/á, společenský/á a snadno si dělám přátele mezi cizími lidmi.',
+        'Rád/a vykonávám úkoly, které vyžadují přesnost a smysl pro detail.'
       ]
     },
     {
       /* header copy for step 2 --------------------------------------- */
-      header: 'Please continue rating on a scale of 1 – 6:',
-      subheader: '(Where 1 is not like you at all and 6 is extremely like you)',
+      header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
       type: 'questions',
-      
+
       /* questions for step 2 ----------------------------------------- */
       questions: [
-        'I am talkative and outgoing and good at making friends with strangers',
-        'I enjoy doing tasks that require accuracy and attention to small detail'
+        'Snažím se vyhýbat konfliktům za každou cenu, i když s ostatními silně nesouhlasím.',
+        'Jsem velmi netrpělivý/á vůči pomalým pracovníkům nebo postupům, které mi překážejí.',
+        'Jsem laskavý/á a starostlivý/á, rád/a pomáhám ostatním, i když mě o to nepožádají.',
+        'Plním úkoly přesně a systematicky, abych zajistil/a vysokou kvalitu.',
+        'Jsem velmi soutěživý/á a rád/a věci řídím.'
+      ]
+    },
+    {
+      /* header copy for step 3 --------------------------------------- */
+      header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      type: 'questions',
+
+      /* questions for step 3 ----------------------------------------- */
+      questions: [
+        'Nemám rád/a, když musím dodržovat mnoho striktních pravidel a předpisů.',
+        'Nebojím se vyjádřit své názory, i když nejsou populární.',
+        'Jsem inovativní a kreativní myslitel/ka, který/á přichází s mnoha novými nápady.',
+        'Jsem přesný/á, logicky uvažující a svědomitý/á, a nemám rád/a nepořádek nebo chyby.',
+        'Jsem ambiciózní a chci v práci dosáhnout vedoucích pozic nebo rozhodovacích pravomocí.'
+      ]
+    },
+    {
+      /* header copy for step 4 --------------------------------------- */
+      header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      type: 'questions',
+
+      /* questions for step 4 ----------------------------------------- */
+      questions: [
+        'Raději pracuji sám/sama a zpracovávám informace, než abych jednal/a s lidmi.',
+        'Vnímám se jako člověk, který má silnou vůli, je rázný a rozhodný.',
+        'Vnímám se jako citlivý/á a chápavý/á vůči ostatním.',
+        'Vnímám se jako člověk, který činí bystrá rozhodnutí založená na logice a faktech.',
+        'Vnímám se jako bezstarostný/á a veselý/á člověk.'
       ]
     },
     {
       /* header copy for contact form step ---------------------------- */
-      header: 'Almost there!',
-      subheader: 'We just need your name and email address so that we can send your report to you. Your report will give you a detailed overview of your communication style and in a few days we will send you a bonus report on how to adapt your style to be more effective when communicating with others.',
+      header: 'Už jste skoro u cíle!',
+      subheader: 'Stačí jen doplnit vaše jméno a e-mail, a my vám hned pošleme vaši úvodní zprávu, která představí váš dominující preferovaný styl chování podle PRISM.',
       type: 'contact'
     }
   ],
-  
+
   /* answers stored across all steps ---------------------------------- */
   answers: {},
-  
+
   /* Computed properties --------------------------------------------- */
   get currentStep() {
     return this.currentStepIndex + 1
   },
-  
+
   get currentStepData() {
     return this.steps[this.currentStepIndex]
   },
-  
+
   get header() {
     return this.currentStepData.header
   },
-  
+
   get subheader() {
     return this.currentStepData.subheader
   },
-  
+
   get questions() {
     return this.currentStepData.questions
   },
-  
+
   get isFirstStep() {
     return this.currentStepIndex === 0
   },
-  
+
   get isLastStep() {
     return this.currentStepIndex === this.steps.length - 1
   },
-  
+
   /* navigation methods ---------------------------------------------- */
   previousStep() {
     if (!this.isFirstStep) {
       this.currentStepIndex--
     }
   },
-  
+
   nextStep() {
     if (!this.isLastStep) {
       this.currentStepIndex++
@@ -96,7 +131,7 @@ createApp({
       this.submit()
     }
   },
-  
+
   /* submit all answers on final step -------------------------------- */
   submit() {
     // Combine answers with contact info

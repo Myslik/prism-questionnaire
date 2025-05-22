@@ -17,7 +17,7 @@
   <section id="questionnaire" class="questionnaire">
 
     <!-- Krok badge -->
-    <div class="q-badge">Krok {{ currentStep }} / {{ steps.length }}</div>
+    <div class="q-badge">Krok {{ currentStep }}</div>
 
     <!-- beige card with header, list -->
     <div class="q-stage">
@@ -58,14 +58,14 @@
             <input type="email" id="email" v-model="contactInfo.email" required>
           </div>
           <div class="q-contact-field">
-            <label for="phone">Telefon</label>
+            <label for="phone">Telefon (nepovinné)</label>
             <input type="tel" id="phone" v-model="contactInfo.phone">
           </div>
         </div>
         <div class="q-contact-row">
           <div class="q-contact-field">
-            <label for="profession">Are you a :</label>
-            <input type="text" id="profession" v-model="contactInfo.profession">
+            <label for="goal">S čím byste chtěl/a, aby vám tento výstup z PRISM pomohl?</label>
+            <input type="text" id="goal" v-model="contactInfo.goal">
           </div>
           <div class="q-contact-field"></div>
         </div>
@@ -75,10 +75,10 @@
     <!-- Navigation buttons -------------------------------------------- -->
     <div class="q-navigation">
       <button v-if="!isFirstStep" class="q-back" @click="previousStep">
-        Zpět
+         Předchozí
       </button>
       <button class="q-submit" @click="nextStep">
-        {{ isLastStep ? 'Generate Report' : 'Pokračovat' }}
+        {{ isLastStep ? 'Vytvořit zprávu' : 'Následující' }}
       </button>
     </div>
   </section>
