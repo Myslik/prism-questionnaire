@@ -12,7 +12,9 @@ createApp({
     lastName: '',
     email: '',
     phone: '',
-    goal: ''
+    goal: '',
+    gdprAgree: false,   //  ← NEW
+    marketing: false    //  ← NEW
   },
 
   /* step configurations ---------------------------------------------- */
@@ -117,6 +119,13 @@ createApp({
     return this.currentStepIndex === this.steps.length - 1
   },
 
+  // compute total number of questions from previous steps
+  get questionOffset() {
+    return this.steps
+      .slice(0, this.currentStepIndex)
+      .reduce((sum, step) => sum + (step.questions ? step.questions.length : 0), 0)
+  },
+
   /* navigation methods ---------------------------------------------- */
   previousStep() {
     if (!this.isFirstStep) {
@@ -133,14 +142,38 @@ createApp({
   },
 
   /* submit all answers on final step -------------------------------- */
-  submit() {
-    // Combine answers with contact info
-    const submissionData = {
-      answers: this.answers,
-      contactInfo: this.contactInfo
+  async submit () {
+    /* 1.  Flatten → structure exactly as required by the webhook */
+    const payload = {
+      first_name:       this.contactInfo.firstName,
+      last_name:        this.contactInfo.lastName,
+      email:            this.contactInfo.email,
+      phone:            this.contactInfo.phone,
+      gdpr_agree:       !!this.contactInfo.gdprAgree,
+      marketing_option: !!this.contactInfo.marketing,
+      ...this.answers   // spreads Q1 … Q20
     }
-    console.table(this.answers)
-    console.log('Contact Information:', this.contactInfo)
-    alert('Thanks! Check the console for captured values.')
+
+    /* 2.  Fire-and-forget POST – Make.com triggers immediately        */
+    try {
+      await fetch(
+        'https://hook.eu2.make.com/90wenhblip6vptya99fd1nejf6ruof7q',
+        {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+          // If you develop locally and hit CORS errors,
+          // add  mode:'no-cors' (you won’t get a response back).
+        }
+      )
+
+      /* 3.  Success UX ------------------------------------------------ */
+      alert('🟢 Díky! Vaše odpovědi byly odeslány.')
+      // optional: redirect or reset form here
+
+    } catch (err) {
+      console.error('Webhook POST failed:', err)
+      alert('🔴 Omlouváme se, odeslání se nezdařilo. Zkuste to prosím znovu.')
+    }
   }
 }).mount('#questionnaire')
