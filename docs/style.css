@@ -185,50 +185,83 @@
   outline: none;
 }
 
-/* Styling for new contact options and GDPR fieldsets */
-fieldset.q-contact-options,
-fieldset.q-contact-gdpr {
-  border: none;
-  padding: 0;
+/* Goal section styling */
+.q-contact-goal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-/* Legend styling for both contact-options and contact-gdpr */
-fieldset.q-contact-options legend,
-fieldset.q-contact-gdpr legend {
+.q-contact-goal-section label {
+  font-weight: 600;
+  color: var(--q-text);
+}
+
+.q-contact-goal-hint {
+  font-size: 0.875rem;
+  color: #5f6368;
+  margin: 0;
+}
+
+.q-contact-goal-section textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--q-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: var(--q-white);
+  resize: vertical;
+  font-family: inherit;
+}
+
+.q-contact-goal-section textarea:focus {
+  border-color: var(--q-accent);
+  outline: none;
+}
+
+/* Radio button sections */
+.q-contact-options-section,
+.q-contact-gdpr-section {
+  margin-top: 1rem;
+}
+
+.q-contact-heading {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+  color: var(--q-text);
 }
 
-/* Checkbox field rows align horizontally */
-fieldset.q-contact-options .q-contact-field,
-fieldset.q-contact-gdpr .q-contact-field {
-  flex-direction: row;
+.q-contact-radio {
+  display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-fieldset.q-contact-options .q-contact-field label,
-fieldset.q-contact-gdpr .q-contact-field label {
+.q-contact-radio input[type="radio"] {
+  width: auto;
+  height: auto;
+  margin-top: 0.2rem;
+  accent-color: var(--q-accent);
+}
+
+.q-contact-radio label {
   font-weight: 400;
   color: var(--q-text);
 }
 
-/* Highlight strong text in GDPR label */
-fieldset.q-contact-gdpr .q-contact-field label strong {
-  font-weight: 600;
-}
-
-/* Info note under GDPR fieldset */
-p.q-contact-note,
+/* Info note under GDPR section */
 p.q-contact-note {
   font-size: 0.875rem;
   color: #5f6368;
   margin-top: 0.5rem;
   line-height: 1.4;
+  margin-bottom: 0;
 }
 
-/* Ensure checkboxes use default sizing and accent color */
+/* Keep the existing checkbox styling for backwards compatibility */
 .q-contact-field input[type="checkbox"] {
   width: auto;
   height: auto;

@@ -13,8 +13,8 @@ createApp({
     email: '',
     phone: '',
     goal: '',
-    gdprAgree: false,   //  ← NEW
-    marketing: false    //  ← NEW
+    gdprAgree: true,   // Default selected
+    marketing: false
   },
 
   /* step configurations ---------------------------------------------- */
@@ -82,7 +82,7 @@ createApp({
     {
       /* header copy for contact form step ---------------------------- */
       header: 'Už jste skoro u cíle!',
-      subheader: 'Stačí jen doplnit vaše jméno a e-mail, a my vám hned pošleme vaši úvodní zprávu, která představí váš dominující preferovaný styl chování podle PRISM.',
+      subheader: 'Stačí jen doplnit vaše jméno a e-mail – a my vám hned pošleme vaši úvodní zprávu, která představí váš dominující preferovaný styl chování podle PRISM.',
       type: 'contact'
     }
   ],
@@ -149,6 +149,7 @@ createApp({
       last_name:        this.contactInfo.lastName,
       email:            this.contactInfo.email,
       phone:            this.contactInfo.phone,
+      goal:             this.contactInfo.goal,
       gdpr_agree:       !!this.contactInfo.gdprAgree,
       marketing_option: !!this.contactInfo.marketing,
       ...this.answers   // spreads Q1 … Q20
