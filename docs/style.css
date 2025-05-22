@@ -220,12 +220,6 @@
   outline: none;
 }
 
-/* Radio button sections */
-.q-contact-options-section,
-.q-contact-gdpr-section {
-  margin-top: 1.75rem;
-}
-
 .q-contact-heading {
   font-size: 1rem;
   font-weight: 600;

@@ -13,8 +13,9 @@ createApp({
     email: '',
     phone: '',
     goal: '',
-    gdprAgree: true,   // Default selected
-    marketing: false
+    resultAgree : false,
+    gdprAgree: false,
+    marketingAgree: false
   },
 
   /* step configurations ---------------------------------------------- */
@@ -151,7 +152,7 @@ createApp({
       phone:            this.contactInfo.phone,
       goal:             this.contactInfo.goal,
       gdpr_agree:       !!this.contactInfo.gdprAgree,
-      marketing_option: !!this.contactInfo.marketing,
+      marketing_option: !!this.contactInfo.marketingAgree,
       ...this.answers   // spreads Q1 … Q20
     }
 

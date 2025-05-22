@@ -71,12 +71,12 @@
         <div class="q-contact-options-section">
           <p class="q-contact-heading">Co si od nás přejete poslat?</p>
           <div class="q-contact-checkbox">
-            <input type="checkbox" id="option1" :checked="!contactInfo.marketing" @click="contactInfo.marketing = false">
-            <label for="option1">Chci zaslat PRISM zprávu s popisem mého nejvýraznějšího stylu chování.</label>
+            <input type="checkbox" id="resultAgree" v-model="contactInfo.resultAgree">
+            <label for="resultAgree">Chci zaslat PRISM zprávu s popisem mého nejvýraznějšího stylu chování.</label>
           </div>
           <div class="q-contact-checkbox">
-            <input type="checkbox" id="option2" :checked="contactInfo.marketing" @click="contactInfo.marketing = true">
-            <label for="option2">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný styl chování lépe využívat – vychází z principů PRISM a zkušeností z praxe.</label>
+            <input type="checkbox" id="marketing" v-model="contactInfo.marketingAgree">
+            <label for="marketing">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný styl chování lépe využívat – vychází z principů PRISM a zkušeností z praxe.</label>
           </div>
         </div>
 
