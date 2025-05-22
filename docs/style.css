@@ -233,21 +233,41 @@
   color: var(--q-text);
 }
 
-.q-contact-radio {
+.q-contact-checkbox {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.q-contact-radio input[type="radio"] {
+.q-contact-checkbox input[type="checkbox"] {
   width: auto;
   height: auto;
   margin-top: 0.2rem;
   accent-color: var(--q-accent);
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--q-accent);
+  position: relative;
+  outline: none;
 }
 
-.q-contact-radio label {
+.q-contact-checkbox input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--q-accent);
+  border-radius: 50%;
+}
+
+.q-contact-checkbox label {
   font-weight: 400;
   color: var(--q-text);
 }
