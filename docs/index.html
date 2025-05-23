@@ -62,28 +62,32 @@
             <input type="tel" id="phone" v-model="contactInfo.phone">
           </div>
         </div>
-        <div class="q-contact-row">
-          <div class="q-contact-field">
-            <label for="goal">S čím byste chtěl/a, aby vám tento výstup z PRISM pomohl?</label>
-            <input type="text" id="goal" v-model="contactInfo.goal">
-          </div>
-          <div class="q-contact-field"></div>
+        <div class="q-contact-goal-section">
+          <label for="goal">S čím byste chtěl/a, aby vám tento výstup z PRISM pomohl?</label>
+          <p class="q-contact-goal-hint">(Např. lepší porozumění sobě, vedení lidí, rozhodování, komunikace v týmu...)</p>
+          <textarea id="goal" v-model="contactInfo.goal" rows="4"></textarea>
         </div>
-         <fieldset class="q-contact-gdpr">
-          <legend>Souhlas se zpracováním údajů</legend>
-          <div class="q-contact-field">
-            <input type="checkbox" id="agree" v-model="contactInfo.gdprAgree" required>
-            <label for="agree">Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem zaslání zprávy PRISM a navazujících informací. Z odběru se můžete kdykoli odhlásit.</label>
+        
+        <div class="q-contact-options-section">
+          <p class="q-contact-heading">Co si od nás přejete poslat?</p>
+          <div class="q-contact-checkbox">
+            <input type="checkbox" id="resultAgree" v-model="contactInfo.resultAgree">
+            <label for="resultAgree">Chci zaslat PRISM zprávu s popisem mého nejvýraznějšího stylu chování.</label>
           </div>
-          <p class="q-contact-note">Vaše údaje jsou u nás v bezpečí. Nebudeme vás zahlcovat, nepředáme váš e-mail dál a z odběru se můžete kdykoli odhlásit.</p>
-        </fieldset>
-        <fieldset class="q-contact-options">
-          <legend>Co si od nás přejete poslat?</legend>
-          <div class="q-contact-field">
-            <input type="checkbox" id="marketing" v-model="contactInfo.marketing">
+          <div class="q-contact-checkbox">
+            <input type="checkbox" id="marketing" v-model="contactInfo.marketingAgree">
             <label for="marketing">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný styl chování lépe využívat – vychází z principů PRISM a zkušeností z praxe.</label>
           </div>
-        </fieldset>
+          <div class="q-contact-checkbox">
+            <input type="checkbox" id="agree" v-model="contactInfo.gdprAgree">
+            <label for="agree">
+              <p>Souhlas se zpracováním údajů</p>
+              <p>Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem zaslání zprávy PRISM a navazujících informací.</p>
+              <p>Z odběru se můžete kdykoliv odhlásit.</p>
+              <p>Vaše údaje jsou u nás v bezpečí. Nebudeme vás zahlcovat, nepředáme váš e-mail dál.</p>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
 
