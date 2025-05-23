@@ -29,9 +29,30 @@
 
       <!-- intro content -------------------------------------------------- -->
       <div v-if="currentStepData.type === 'intro'" class="q-intro">
-        <p v-for="(paragraph, i) in currentStepData.content" :key="i" class="q-intro-text">
-          {{ paragraph }}
+        <p>Tento krátký dotazník je velmi zjednodušená verze nástroje <i>PRISM Brain Mapping</i>, která vám nabídne první
+          pohled na to, jaký styl chování u vás v tuto chvíli nejvíce dominuje. Na rozdíl od kompletního PRISM profilu,
+          který pracuje se 4 kvadranty a 8 dimenzemi chování a zachycuje rozdíly mezi vaším přirozeným a přizpůsobeným
+          chováním, vám tato ochutnávka ukáže jen jeden z těchto kvadrantů – ten, který u sebe vnímáte jako
+          nejpreferovanější.</p>
+        <p><strong>Pojďme na to:</strong></p>
+        <p>Čeká vás celkem 20 tvrzení. U každého z nich prosím zvolte na škále od 1 do 6, jak moc podle vás vystihuje
+          vaše chování a to, jak se obvykle projevujete.
+
         </p>
+        <ul>
+          <li>6 = přesně takhle se většinou chovám</li>
+          <li>1 = tohle chování na mě vůbec nesedí</li>
+        </ul>
+        <p>
+          Nemusíte nad tím dlouze přemýšlet. Každý z nás přistupuje k různým situacím jinak – a přesně to tento nástroj
+          zohledňuje. Vaše instinktivní reakce bývají nejpřesnější, tak jim klidně důvěřujte.
+        </p>
+        <p>Za pár minut bude hotovo – po vyplnění stačí kliknout na „Vytvořit zprávu" a během chvilky vám dorazí
+          e-mailem krátká ochutnávka toho, jak vás <i>PRISM</i> vidí. Nejde o celý profil, ale o první náhled, který vám může
+          otevřít dveře k hlubšímu pochopení sebe sama.',</p>
+        <p>Berte to jako pozvánku. Pokud vás výstup zaujme, můžete si kdykoli doplnit celý profil a podívat se na sebe
+          komplexně – včetně rozdílů mezi tím, jak se projevujete přirozeně, jak máte tendenci se přizpůsobovat
+          očekávání druhých a nárokům pracovního prostředí, nebo jak vás pravděpodobně vnímají ostatní.</p>
       </div>
 
       <!-- questions or contact form based on step type ------------------- -->
@@ -42,7 +63,8 @@
             <span class="q-text">{{ q }}</span>
 
             <!-- "square" to record answer: a 1-6 number picker for now -->
-            <input class="q-score" type="number" min="1" max="6" v-model.number="answers['Q' + (questionOffset + i + 1)]" />
+            <input class="q-score" type="number" min="1" max="6"
+              v-model.number="answers['Q' + (questionOffset + i + 1)]" />
           </li>
         </ol>
       </div>
@@ -70,26 +92,29 @@
           </div>
         </div>
         <div class="q-contact-goal-section">
-          <label for="goal">S čím byste chtěl/a, aby vám tento výstup z PRISM pomohl?</label>
-          <p class="q-contact-goal-hint">(Např. lepší porozumění sobě, vedení lidí, rozhodování, komunikace v týmu...)</p>
+          <label for="goal">S čím byste chtěl/a, aby vám tento výstup z <i>PRISM</i> pomohl?</label>
+          <p class="q-contact-goal-hint">(Např. lepší porozumění sobě, vedení lidí, rozhodování, komunikace v týmu...)
+          </p>
           <textarea id="goal" v-model="contactInfo.goal" rows="4"></textarea>
         </div>
-        
+
         <div class="q-contact-options-section">
           <p class="q-contact-heading">Co si od nás přejete poslat?</p>
           <div class="q-contact-checkbox">
             <input type="checkbox" id="resultAgree" v-model="contactInfo.resultAgree">
-            <label for="resultAgree">Chci zaslat PRISM zprávu s popisem mého nejvýraznějšího stylu chování.</label>
+            <label for="resultAgree">Chci zaslat <i>PRISM</i> zprávu s popisem mého nejvýraznějšího stylu chování.</label>
           </div>
           <div class="q-contact-checkbox">
             <input type="checkbox" id="marketing" v-model="contactInfo.marketingAgree">
-            <label for="marketing">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný styl chování lépe využívat – vychází z principů PRISM a zkušeností z praxe.</label>
+            <label for="marketing">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný
+              styl chování lépe využívat – vychází z principů <i>PRISM</i> a zkušeností z praxe.</label>
           </div>
           <div class="q-contact-checkbox">
             <input type="checkbox" id="agree" v-model="contactInfo.gdprAgree">
             <label for="agree">
               <p>Souhlas se zpracováním údajů</p>
-              <p>Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem zaslání zprávy PRISM a navazujících informací.</p>
+              <p>Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem
+                zaslání zprávy <i>PRISM</i> a navazujících informací.</p>
               <p>Z odběru se můžete kdykoliv odhlásit.</p>
               <p>Vaše údaje jsou u nás v bezpečí. Nebudeme vás zahlcovat, nepředáme váš e-mail dál.</p>
             </label>
