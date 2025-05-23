@@ -21,9 +21,30 @@ createApp({
   /* step configurations ---------------------------------------------- */
   steps: [
     {
+      /* header copy for intro step ----------------------------------- */
+      header: 'Malá ochutnávka, ale váš velký první krok k lepšímu pochopení sebe sama.',
+      subheader: '',
+      type: 'intro',
+      
+      /* content for intro step -------------------------------------- */
+      content: [
+        'Tento krátký dotazník je velmi zjednodušená verze nástroje PRISM Brain Mapping, která vám nabídne první pohled na to, jaký styl chování u vás v tuto chvíli nejvíce dominuje. Na rozdíl od kompletního PRISM profilu, který pracuje se 4 kvadranty a 8 dimenzemi chování a zachycuje rozdíly mezi vaším přirozeným a přizpůsobeným chováním, vám tato ochutnávka ukáže jen jeden z těchto kvadrantů – ten, který u sebe vnímáte jako nejpreferovanější.',
+        'Pojďme na to:',
+        'Čeká vás celkem 20 tvrzení. U každého z nich prosím zvolte na škále od 1 do 6, jak moc podle vás vystihuje vaše chování a to, jak se obvykle projevujete.',
+        ' • 6 = přesně takhle se většinou chovám',
+        ' • 1 = tohle chování na mě vůbec nesedí',
+        'Nemusíte nad tím dlouze přemýšlet. Každý z nás přistupuje k různým situacím jinak – a přesně to tento nástroj zohledňuje. Vaše instinktivní reakce bývají nejpřesnější, tak jim klidně důvěřujte.',
+        'Za pár minut bude hotovo – po vyplnění stačí kliknout na „Vytvořit zprávu" a během chvilky vám dorazí e-mailem krátká ochutnávka toho, jak vás PRISM vidí. Nejde o celý profil, ale o první náhled, který vám může otevřít dveře k hlubšímu pochopení sebe sama.',
+        'Berte to jako pozvánku. Pokud vás výstup zaujme, můžete si kdykoli doplnit celý profil a podívat se na sebe komplexně – včetně rozdílů mezi tím, jak se projevujete přirozeně, jak máte tendenci se přizpůsobovat očekávání druhých a nárokům pracovního prostředí, nebo jak vás pravděpodobně vnímají ostatní.'
+      ],
+      
+      /* custom button text for intro step --------------------------- */
+      buttonText: 'Pojďme začít'
+    },
+    {
       /* header copy for step 1 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 1 ----------------------------------------- */
@@ -38,7 +59,7 @@ createApp({
     {
       /* header copy for step 2 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 2 ----------------------------------------- */
@@ -53,7 +74,7 @@ createApp({
     {
       /* header copy for step 3 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 3 ----------------------------------------- */
@@ -68,7 +89,7 @@ createApp({
     {
       /* header copy for step 4 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 4 ----------------------------------------- */
@@ -165,7 +186,7 @@ createApp({
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload)
           // If you develop locally and hit CORS errors,
-          // add  mode:'no-cors' (you won’t get a response back).
+          // add  mode:'no-cors' (you won't get a response back).
         }
       )
 
