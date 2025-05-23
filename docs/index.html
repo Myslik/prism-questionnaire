@@ -78,16 +78,15 @@
             <input type="checkbox" id="marketing" v-model="contactInfo.marketingAgree">
             <label for="marketing">Chci navíc zdarma dostávat jednou za 2 měsíce praktický tip, jak svůj preferovaný styl chování lépe využívat – vychází z principů PRISM a zkušeností z praxe.</label>
           </div>
-        </div>
-
-        <div class="q-contact-gdpr-section">
-          <p class="q-contact-heading">Souhlas se zpracováním údajů</p>
           <div class="q-contact-checkbox">
             <input type="checkbox" id="agree" v-model="contactInfo.gdprAgree">
-            <label for="agree">Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem zaslání zprávy PRISM a navazujících informací.</label>
+            <label for="agree">
+              <p>Souhlas se zpracováním údajů</p>
+              <p>Zaškrtnutím souhlasím se zpracováním mých osobních údajů (jméno, e-mail, případně telefon) za účelem zaslání zprávy PRISM a navazujících informací.</p>
+              <p>Z odběru se můžete kdykoliv odhlásit.</p>
+              <p>Vaše údaje jsou u nás v bezpečí. Nebudeme vás zahlcovat, nepředáme váš e-mail dál.</p>
+            </label>
           </div>
-          <p class="q-contact-note">Z odběru se můžete kdykoliv odhlásit.</p>
-          <p class="q-contact-note">Vaše údaje jsou u nás v bezpečí. Nebudeme vás zahlcovat, nepředáme váš e-mail dál.</p>
         </div>
       </div>
     </div>

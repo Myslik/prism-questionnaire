@@ -235,16 +235,16 @@
 }
 
 .q-contact-checkbox input[type="checkbox"] {
-  width: auto;
-  height: auto;
   margin-top: 0.2rem;
-  accent-color: var(--q-accent);
+  accent-color: var(--q-text);
+  background-color: var(--q-white);
   border-radius: 50%;
   appearance: none;
   -webkit-appearance: none;
+  flex: 0 0 16px;  
   width: 16px;
   height: 16px;
-  border: 2px solid var(--q-accent);
+  border: 2px solid var(--q-text);
   position: relative;
   outline: none;
 }
@@ -257,7 +257,7 @@
   transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
-  background-color: var(--q-accent);
+  background-color: var(--q-text);
   border-radius: 50%;
 }
 
@@ -266,19 +266,6 @@
   color: var(--q-text);
 }
 
-/* Info note under GDPR section */
-p.q-contact-note {
-  font-size: 0.875rem;
-  color: #5f6368;
-  margin-top: 0.5rem;
-  line-height: 1.4;
-  margin-bottom: 0;
-}
-
-/* Keep the existing checkbox styling for backwards compatibility */
-.q-contact-field input[type="checkbox"] {
-  width: auto;
-  height: auto;
-  margin-top: 0.2rem;
-  accent-color: var(--q-accent);
+.q-contact-checkbox label p {
+  margin-top: 0;
 }
