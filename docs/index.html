@@ -128,7 +128,7 @@
       <button v-if="!isFirstStep" class="q-back" @click="previousStep">
          Předchozí
       </button>
-      <button class="q-submit" @click="nextStep">
+      <button class="q-submit" @click="nextStep" :disabled="!isNextButtonEnabled">
         {{ isLastStep ? 'Vytvořit zprávu' : (currentStepData.buttonText || 'Následující') }}
       </button>
     </div>
