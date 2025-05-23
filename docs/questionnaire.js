@@ -136,6 +136,45 @@ createApp({
       .reduce((sum, step) => sum + (step.questions ? step.questions.length : 0), 0)
   },
 
+  // check if all questions in the current step have been answered
+  get areCurrentQuestionsAnswered() {
+    // Only applicable for question-type steps
+    if (this.currentStepData.type !== 'questions' || !this.currentStepData.questions) {
+      return true
+    }
+
+    // Check if every question has been answered with a value between 1 and 6
+    return this.currentStepData.questions.every((_, i) => {
+      const questionNumber = this.questionOffset + i + 1
+      const answerValue = this.answers['Q' + questionNumber]
+      return typeof answerValue === 'number' && answerValue >= 1 && answerValue <= 6
+    })
+  },
+  
+  // check if contact form is valid (all required fields are filled and resultAgree is checked)
+  get isContactFormValid() {
+    if (this.currentStepData.type !== 'contact') {
+      return true
+    }
+    
+    return (
+      !!this.contactInfo.firstName &&
+      !!this.contactInfo.lastName &&
+      !!this.contactInfo.email &&
+      !!this.contactInfo.resultAgree
+    )
+  },
+  
+  // determine if the next/submit button should be enabled
+  get isNextButtonEnabled() {
+    if (this.currentStepData.type === 'questions') {
+      return this.areCurrentQuestionsAnswered
+    } else if (this.currentStepData.type === 'contact' && this.isLastStep) {
+      return this.isContactFormValid
+    }
+    return true
+  },
+
   /* navigation methods ---------------------------------------------- */
   previousStep() {
     if (!this.isFirstStep) {
@@ -167,7 +206,7 @@ createApp({
 
     /* 2.  Fire-and-forget POST – Make.com triggers immediately        */
     try {
-      await fetch(
+      const response = await fetch(
         'https://hook.eu2.make.com/90wenhblip6vptya99fd1nejf6ruof7q',
         {
           method:  'POST',
@@ -177,6 +216,11 @@ createApp({
           // add  mode:'no-cors' (you won't get a response back).
         }
       )
+
+      /* Check if response status is not in the 200-299 range */
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
 
       /* 3.  Success UX ------------------------------------------------ */
       alert('🟢 Díky! Vaše odpovědi byly odeslány.')
