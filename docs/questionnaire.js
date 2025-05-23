@@ -21,9 +21,18 @@ createApp({
   /* step configurations ---------------------------------------------- */
   steps: [
     {
+      /* header copy for intro step ----------------------------------- */
+      header: 'Malá ochutnávka, ale váš velký první krok k lepšímu pochopení sebe sama.',
+      subheader: '',
+      type: 'intro',
+      
+      /* custom button text for intro step --------------------------- */
+      buttonText: 'Pojďme začít'
+    },
+    {
       /* header copy for step 1 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 1 ----------------------------------------- */
@@ -38,7 +47,7 @@ createApp({
     {
       /* header copy for step 2 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 2 ----------------------------------------- */
@@ -53,7 +62,7 @@ createApp({
     {
       /* header copy for step 3 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 3 ----------------------------------------- */
@@ -68,7 +77,7 @@ createApp({
     {
       /* header copy for step 4 --------------------------------------- */
       header: 'Ohodnoťte každé tvrzení na škále od 1 do 6:',
-      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje“ a 6 „zcela mě to vystihuje“)',
+      subheader: '(Kde 1 znamená „vůbec mě to nevystihuje" a 6 „zcela mě to vystihuje")',
       type: 'questions',
 
       /* questions for step 4 ----------------------------------------- */
@@ -165,7 +174,7 @@ createApp({
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload)
           // If you develop locally and hit CORS errors,
-          // add  mode:'no-cors' (you won’t get a response back).
+          // add  mode:'no-cors' (you won't get a response back).
         }
       )
 

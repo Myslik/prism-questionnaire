@@ -269,3 +269,20 @@
 .q-contact-checkbox label p {
   margin-top: 0;
 }
+
+/* intro step styling ---------------------------------------------------- */
+.q-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.q-intro p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.q-intro ul {
+  margin: 0;
+}
