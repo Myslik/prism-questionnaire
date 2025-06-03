@@ -40,7 +40,7 @@ createApp({
         'Cítím se trapně, když mě někdo chválí nebo oceňuje na veřejnosti.',
         'Rychle se začnu nudit a potřebuji hodně rozmanitosti a vzrušení.',
         'Jsem trpělivý/á a chápavý/á, když jednám s obtížnými lidmi.',
-        'Jsem hovorný/á, společenský/á a snadno si dělám přátele mezi cizími lidmi.',
+        'Jsem upovídaný/á, společenský/á a snadno si dělám přátele mezi cizími lidmi.',
         'Rád/a vykonávám úkoly, které vyžadují přesnost a smysl pro detail.'
       ]
     },
@@ -82,23 +82,44 @@ createApp({
 
       /* questions for step 4 ----------------------------------------- */
       questions: [
-        'Raději pracuji sám/sama a zpracovávám informace, než abych jednal/a s lidmi.',
+        'Preferuji pracovat samostatně a raději se zabývám informacemi a daty než lidmi.',
         'Vnímám se jako člověk, který má silnou vůli, je rázný a rozhodný.',
         'Vnímám se jako citlivý/á a chápavý/á vůči ostatním.',
         'Vnímám se jako člověk, který činí bystrá rozhodnutí založená na logice a faktech.',
-        'Vnímám se jako bezstarostný/á a veselý/á člověk.'
+        'Vnímám sám sebe jako veselého člověka, který má rád zábavu.'
       ]
     },
     {
       /* header copy for contact form step ---------------------------- */
       header: 'Už jste skoro u cíle!',
-      subheader: 'Stačí jen doplnit vaše jméno a e-mail – a my vám hned pošleme vaši úvodní zprávu, která představí váš dominující preferovaný styl chování podle PRISM.',
+      subheader: 'Stačí jen doplnit vaše jméno a e-mail – a my vám hned pošleme vaši úvodní zprávu, která představí váš dominující preferovaný styl chování podle <i>PRISM</i>.',
       type: 'contact'
     }
   ],
 
   /* answers stored across all steps ---------------------------------- */
-  answers: {},
+  answers: {
+    Q1: 1,
+    Q2: 1,
+    Q3: 1,
+    Q4: 1,
+    Q5: 1,
+    Q6: 1,
+    Q7: 1,
+    Q8: 1,
+    Q9: 1,
+    Q10: 1,
+    Q11: 1,
+    Q12: 1,
+    Q13: 1,
+    Q14: 1,
+    Q15: 1,
+    Q16: 1,
+    Q17: 1,
+    Q18: 1,
+    Q19: 1,
+    Q20: 1
+  },
 
   /* Computed properties --------------------------------------------- */
   get currentStep() {
